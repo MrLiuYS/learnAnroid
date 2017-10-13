@@ -1,4 +1,4 @@
-package com.mrliuys.android.notebook;
+package com.mrliuys.android.notebook.home;
 
 import android.content.Context;
 import android.support.annotation.IdRes;
@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.mrliuys.android.notebook.model.NotebookModel;
+import com.mrliuys.android.notebook.R;
 
 import java.util.List;
 
