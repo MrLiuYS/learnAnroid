@@ -6,7 +6,7 @@ import java.io.Serializable;
  * Created by LiuYongSheng on 2017/10/13.
  */
 
-public class NotebookModel implements Serializable{
+public class NotebookModel implements Serializable {
 
     private String title;
     private String summary;
@@ -21,13 +21,11 @@ public class NotebookModel implements Serializable{
     }
 
     public String getTitle() {
-
         return title;
     }
 
     public String getSummary() {
         return summary;
-
     }
 
     public int getNoteID() {
