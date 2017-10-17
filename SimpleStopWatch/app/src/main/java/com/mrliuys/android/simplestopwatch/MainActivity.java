@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
     private boolean isStop = true;
     private static int delay = 100;  //1s
     private static int period = 100;  //1s
-    private static final int UPDATE_TEXTVIEW = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,8 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
                     Log.i("tag", count + "");
 
-                    sendMessage(UPDATE_TEXTVIEW);
-
+                    sendMessage(1);
                 }
             };
         }
