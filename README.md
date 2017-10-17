@@ -3,6 +3,7 @@
 
 ## 计时器
 
+![](https://raw.githubusercontent.com/MrLiuYS/learnAnroid/master/res/SimpleStopWatch.gif)
 
 
 
