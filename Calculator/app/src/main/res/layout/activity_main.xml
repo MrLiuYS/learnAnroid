@@ -8,17 +8,19 @@
     android:orientation="vertical"
     tools:context="com.mrliuys.android.calculator.MainActivity">
 
-    <TextView
+    <EditText
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="40pt"
         android:layout_margin="5pt"
         android:gravity="center_vertical|right"
-        android:text="0"
+        android:hint="0"
         android:textAlignment="viewEnd"
         android:textColor="@android:color/background_light"
         android:textSize="50sp"
         android:background="@drawable/corner_view"
+        android:inputType="numberDecimal"
+        android:enabled="false"
         />
 
     <TableLayout
@@ -63,25 +65,25 @@
             android:layout_weight="1">
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/button_7"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="7"/>
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/button_8"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="8"/>
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/button_9"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="9"/>
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/button_multiply"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="×"/>
@@ -93,25 +95,25 @@
             android:layout_weight="1">
 
             <Button
-                android:id="@+id/button6"
+                android:id="@+id/button_4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="4"/>
 
             <Button
-                android:id="@+id/button7"
+                android:id="@+id/button_5"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="5"/>
 
             <Button
-                android:id="@+id/button8"
+                android:id="@+id/button_6"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="6"/>
 
             <Button
-                android:id="@+id/button9"
+                android:id="@+id/button_minus"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="-"/>
@@ -123,25 +125,25 @@
             android:layout_weight="1">
 
             <Button
-                android:id="@+id/button10"
+                android:id="@+id/button_1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="1"/>
 
             <Button
-                android:id="@+id/button11"
+                android:id="@+id/button_2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="2"/>
 
             <Button
-                android:id="@+id/button12"
+                android:id="@+id/button_3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="3"/>
 
             <Button
-                android:id="@+id/button13"
+                android:id="@+id/button_add"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="+"/>
@@ -154,7 +156,7 @@
             >
 
             <Button
-                android:id="@+id/button14"
+                android:id="@+id/button_0"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
 
@@ -162,13 +164,13 @@
                 android:text="0"/>
 
             <Button
-                android:id="@+id/button15"
+                android:id="@+id/button_point"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="."/>
 
             <Button
-                android:id="@+id/button16"
+                android:id="@+id/button_equal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="="/>
