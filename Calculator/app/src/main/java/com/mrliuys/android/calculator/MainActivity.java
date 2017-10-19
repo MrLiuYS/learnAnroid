@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.text.DecimalFormat;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -54,6 +56,10 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.button_equal)
     Button buttonEqual;
 
+    private int symol = -1;
+    private String parma0;
+    private boolean isStartSecondParma = false; //开始输入第二个参数
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,12 +67,6 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
     }
-
-    String a = "";
-
-    String obj = "";
-
-    int symol = -1;
 
 
     @OnClick({R.id.button_AC, R.id.button_AM, R.id.button_sign, R.id.button_except, R.id.button_7, R.id.button_8, R
@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.button_AC:
                 textView.setText("");
                 symol = -1;
+                isStartSecondParma = false;
                 break;
             case R.id.button_AM:
                 break;
@@ -86,109 +87,132 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.button_except:
 
-                if (symol != -1){
-
-                    //进行计算
-
-
-
-
-                }else {
-
-                    a = obj;
-
-
-
-                }
-
-                symol = R.id.button_except;
-
+                funSymol(view.getId());
 
                 break;
             case R.id.button_7:
 
-                if (symol != -1){
-                    obj = "";
-                }
 
-                obj = obj + 7;
+                funInput("7");
+
                 break;
             case R.id.button_8:
-                if (symol != -1){
-                    obj = "";
-                }
-                obj = obj + 8;
+
+                funInput("8");
                 break;
             case R.id.button_9:
-                obj = obj + 9;
+                funInput("9");
                 break;
             case R.id.button_multiply:
-                symol = R.id.button_multiply;
+                funSymol(view.getId());
                 break;
             case R.id.button_4:
-                obj = obj + 4;
+                funInput("4");
                 break;
             case R.id.button_5:
-                obj = obj + 5;
+                funInput("5");
                 break;
             case R.id.button_6:
-                obj = obj + 6;
+                funInput("6");
                 break;
             case R.id.button_minus:
-                symol = R.id.button_minus;
+                funSymol(view.getId());
                 break;
             case R.id.button_1:
-                obj = obj + 1;
+                funInput("1");
                 break;
             case R.id.button_2:
-                obj = obj + 2;
+                funInput("2");
                 break;
             case R.id.button_3:
-                obj = obj + 3;
+                funInput("3");
                 break;
             case R.id.button_add:
-                symol = R.id.button_add;
+                funSymol(view.getId());
                 break;
             case R.id.button_0:
-                obj = obj + 0;
+                funInput("0");
                 break;
             case R.id.button_point:
-                obj = obj + ".";
+                funInput(".");
                 break;
             case R.id.button_equal:
-                symol = R.id.button_equal;
+                funSymol(view.getId());
                 break;
         }
     }
 
-    private String  algorithm(String a , int symol , String b) {
+    private void funInput(String inputStr) {
 
-        switch (symol){
+        if (isStartSecondParma) {
+
+            textView.setText(inputStr);
+
+            isStartSecondParma = false;
+
+        } else {
+            textView.setText(textView.getText().toString() + inputStr);
+        }
+
+    }
+
+
+    private void funSymol(int aSymol) {
+
+        isStartSecondParma = true;
+
+        if (symol != -1) {
+
+            parma0 = algorithm(parma0, symol, textView.getText().toString());
+
+            textView.setText(parma0);
+
+        } else {
+
+            parma0 = textView.getText().toString();
+
+        }
+
+        if (aSymol == R.id.button_equal) {
+            symol = -1;
+            return;
+        }
+
+        symol = aSymol;
+
+    }
+
+    private String algorithm(String a, int symol, String b) {
+
+        DecimalFormat format = new DecimalFormat("#.#");
+
+        switch (symol) {
 
             case R.id.button_except:
 
-                if (Double.parseDouble(b) != 0){
-                    return String.valueOf(Double.parseDouble(a) / Double.parseDouble(b));
+                if (Double.parseDouble(b) != 0) {
+
+                    return format.format(Double.parseDouble(a) / Double.parseDouble(b));
                 }
 
                 break;
             case R.id.button_multiply:
 
-                return String.valueOf(Double.parseDouble(a) * Double.parseDouble(b));
+                return format.format(Double.parseDouble(a) * Double.parseDouble(b));
 
-                break;
             case R.id.button_minus:
 
-                return String.valueOf(Double.parseDouble(a) - Double.parseDouble(b));
-                break;
+                return format.format(Double.parseDouble(a) - Double.parseDouble(b));
+
             case R.id.button_add:
-                return String.valueOf(Double.parseDouble(a) + Double.parseDouble(b));
-                break;
+                return format.format(Double.parseDouble(a) + Double.parseDouble(b));
+
             default:
 
                 break;
         }
 
+        return "0";
 
     }
 
