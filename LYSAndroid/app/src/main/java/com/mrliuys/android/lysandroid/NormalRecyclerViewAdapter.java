@@ -32,6 +32,8 @@ public class NormalRecyclerViewAdapter extends RecyclerView.Adapter<NormalRecycl
 
         mDatas.add("基础控件");
 
+        mDatas.add("高级控件");
+
         mContext = context;
 
         mLayoutInflater = LayoutInflater.from(context);
