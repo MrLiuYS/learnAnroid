@@ -27,7 +27,7 @@
 ## LYSAndroid
 
 
-![RecyclerView](https://raw.githubusercontent.com/MrLiuYS/learnAnroid/master/res/RecyclerView.png)
+![](https://raw.githubusercontent.com/MrLiuYS/learnAnroid/master/res/recyclerview11.png)
 RecyclerView
 
 ## 笔记本
